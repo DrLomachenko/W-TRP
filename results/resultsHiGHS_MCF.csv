@@ -1,0 +1,7 @@
+algorithm,test,N,M,C,total_cost,millis
+MCF_ILP,rand_M4_N8_C2_id000.txt,8,4,27,69.997
+MCF_ILP,rand_M5_N10_C2_id000.txt,10,5,218,620.271
+MCF_ILP,rand_M6_N12_C2_id000.txt,12,6,226,1008.854
+MCF_ILP,rand_M7_N14_C2_id000.txt,14,7,218,811.665
+MCF_ILP,rand_M8_N16_C2_id000.txt,16,8,232,1016.620
+MCF_ILP,rand_M9_N18_C3_id000.txt,18,9,375,1026.863

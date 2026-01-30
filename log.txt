@@ -1,0 +1,10 @@
+=== Tool Switching Problem (PF vs LC) ===
+[Mecler] rand_M10_N20_C3_id000.txt -> cost=47, avg time=7593.717000 ms
+[Mecler] rand_M11_N22_C3_id000.txt -> cost=45, avg time=9494.823000 ms
+[Mecler] rand_M12_N24_C3_id000.txt -> cost=39, avg time=13783.916000 ms
+[Mecler] rand_M13_N26_C3_id000.txt -> cost=60, avg time=23259.385000 ms
+[Mecler] rand_M16_N32_C4_id000.txt -> cost=141, avg time=98685.333000 ms
+[Mecler] rand_M17_N34_C4_id000.txt -> cost=82, avg time=79090.899000 ms
+[Mecler] rand_M18_N36_C4_id000.txt -> cost=85, avg time=109257.272000 ms
+[Mecler] rand_M19_N38_C4_id000.txt -> cost=98, avg time=121594.476000 ms
+[Mecler] rand_M20_N40_C4_id000.txt -> cost=127, avg time=169714.970000 ms

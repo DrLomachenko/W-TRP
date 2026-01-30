@@ -1,0 +1,5 @@
+algorithm,test,N,M,C,total_cost,millis
+FLOW_LSG,rand_M4_N8_C2_id000.txt,8,4,26,0.027
+FLOW_LSG,rand_M5_N10_C2_id000.txt,10,5,210,0.014
+FLOW_LSG,rand_M6_N12_C2_id000.txt,12,6,214,0.021
+FLOW_LSG,rand_M7_N14_C2_id000.txt,14,7,215,0.013

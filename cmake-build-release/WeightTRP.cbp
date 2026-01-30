@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="WeightTRP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="WeightTRP">
+				<Option output="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/WeightTRP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/highs/1.12.0/include/highs"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 WeightTRP"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="WeightTRP/fast">
+				<Option output="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/WeightTRP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/highs/1.12.0/include/highs"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 WeightTRP/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/apple/Desktop/Tools/WeightTRP/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/BuilderLC.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/BuilderLC.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/BuilderLSG.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/BuilderLSG.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/BuilderPF.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/BuilderPF.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/DAG.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/DAG.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/DAG_Solver.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/DAG_Solver.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/HighsFlowSolver.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/HighsFlowSolver.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/HighsLPSolver.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/HighsLPSolver.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/HighsMCFSolver.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/HighsMCFSolver.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Instance.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Instance.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/KTNSSolver.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/KTNSSolver.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/CommandLine.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/CommandLine.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Genetic.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Genetic.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Individual.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Individual.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/LocalSearch.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/LocalSearch.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Parameters.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Parameters.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Population.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Population.h">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/src/main.cpp">
+			<Option target="WeightTRP"/>
+		</Unit>
+		<Unit filename="/Users/apple/Desktop/Tools/WeightTRP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /Users/apple/Desktop/Tools/WeightTRP
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/apple/Desktop/Tools/WeightTRP/cmake-build-release
