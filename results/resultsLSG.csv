@@ -1,5 +1,4 @@
 algorithm,test,N,M,C,total_cost,millis
-FLOW_LSG,rand_M4_N8_C2_id000.txt,8,4,26,0.027
-FLOW_LSG,rand_M5_N10_C2_id000.txt,10,5,210,0.016
-FLOW_LSG,rand_M6_N12_C2_id000.txt,12,6,214,0.017
-FLOW_LSG,rand_M7_N14_C2_id000.txt,14,7,215,0.012
+,from_1datA1_M10_N10_C5.txt,10,10,536,0.016
+,from_1datA2_M10_N10_C5.txt,10,10,537,0.012
+,from_1datA3_M10_N10_C5.txt,10,10,529,0.013

@@ -8,10 +8,8 @@ class DAG {
 public:
     // Базовый абстрактный дуга
     struct Arc {
-        int flow = 0;
         int from = -1;
         int to   = -1;
-        int tool = -1; // неотрицательное только для ребер проноса инстурмента
         virtual ~Arc() = default;
 
         virtual int        residual_cap() const = 0;
@@ -29,12 +27,12 @@ public:
     // Прямое (исходное) ребро
     struct ForwardArc : Arc {
         int capacity      = 0;
+        int flow          = 0;
         int weight        = 0;      // "исходная" стоимость ребра
         bool in_objective = false;  // учитывать ли в итоговой сумме
         BackwardArc* mate = nullptr;
 
-
-        ForwardArc(int u, int v, int cap, int w, bool in_obj, int tool);
+        ForwardArc(int u, int v, int cap, int w, bool in_obj);
 
         int        residual_cap() const override;
         long long  cost()         const override;
@@ -61,7 +59,7 @@ public:
 
     // Старый интерфейс: как раньше.
     // Ребро участвует в цели, если weight >= 0.
-    void add_edge(int from, int to, int weight = 0, int capacity = 0, bool objective = true, int tool = -1);
+    void add_edge(int from, int to, int weight = 0, int capacity = 0, bool objective = true);
 
     // Новый интерфейс: явная пометка, учитывать ли ребро в итоговой стоимости.
     void add_edge_marked(int from, int to, int weight, int capacity, bool in_objective);
@@ -70,7 +68,7 @@ public:
     void set_sink(int sink);
 
     // Возвращает сумму weight * flow по исходным рёбрам, где in_objective == true.
-    std::pair<int, std::vector<std::vector<int>>>  compute_max_flow_min_cost();
+    int  compute_max_flow_min_cost();
 
     // Проверка, что по прямым дугам граф ацикличен
     bool is_acyclic() const;
@@ -82,7 +80,7 @@ private:
     std::vector<std::unique_ptr<Arc>> storage_;
 
     // Вспомогательные методы
-    void add_arc_pair_(int u, int v, int cap, int w, bool in_objective, int tool = -1);
+    void add_arc_pair_(int u, int v, int cap, int w, bool in_objective);
     bool has_cycle_dfs_(int v, std::vector<int>& vis) const;
 
     // Потенциалы Джонсона — для Дейкстры по редуцированным стоимостям

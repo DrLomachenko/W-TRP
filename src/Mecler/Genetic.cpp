@@ -8,12 +8,12 @@
  * Contact: jmecler@inf.puc-rio.br
  *
  */
-#include <chrono>
+
 #include "Genetic.h"
 
 // Main code of the HGA
 void Genetic::evolve(int maxIterWithoutImprov) {
-    auto t0 = std::chrono::high_resolution_clock::now();
+
     // Individuals used for crossover
     Individual *parent1;
     Individual* parent2;
@@ -33,10 +33,6 @@ void Genetic::evolve(int maxIterWithoutImprov) {
     trainer->localSearch = new LocalSearch(parameters, trainer);
 
     while (nbIterWithoutImprov < maxIterWithoutImprov) {
-        auto t1 = std::chrono::high_resolution_clock::now();
-        if (std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count() / 1000.0 > ticks * 1000) {
-            break;
-        }
         // CROSSOVER
         parent1 = population->getIndividualBinT(); // Pick individual by binary tournament
         parent2 = population->getIndividualBinT(); // Pick individual by binary tournament
@@ -132,7 +128,7 @@ void Genetic::crossoverOX(Individual *parent1, Individual *parent2) {
     offspring->solutionCost.evaluation = offspring->calcCost(-1);
 }
 
-Genetic::Genetic(Parameters *parameters, Population *population, double ticks, bool traces) :
+Genetic::Genetic(Parameters *parameters, Population *population, clock_t ticks, bool traces) :
         parameters(parameters), population(population), ticks(ticks), traces(traces) {
 }
 

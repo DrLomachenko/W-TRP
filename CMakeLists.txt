@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
 
-# Собираем строго под arm64 (Apple Silicon), чтобы совпадало с libhighs.dylib
-set(CMAKE_OSX_ARCHITECTURES "arm64" CACHE STRING "" FORCE)
+# Убираем архитектуру для macOS, т.к. она не требуется в Linux
+# set(CMAKE_OSX_ARCHITECTURES "arm64" CACHE STRING "" FORCE)
 
 project(WeightTRP)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Релизные флаги (CLion в Release-профиле их подхватит)
+# Релизные флаги (по аналогии с macOS)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
 

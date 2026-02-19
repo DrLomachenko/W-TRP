@@ -6,7 +6,7 @@
 
 class GeneticSolver : public ISolver {
 public:
-    GeneticSolver(double maxTimeSeconds) {name =  "Mecler"; timeLimit = maxTimeSeconds;}
+    GeneticSolver() {name =  "Mecler";}
 
 
 

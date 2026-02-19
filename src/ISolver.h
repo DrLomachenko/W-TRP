@@ -9,7 +9,6 @@ struct ISolver {
     std::string name;
 
     virtual long long ComputeSolution(const TestInstance& instance) = 0;
-    double timeLimit; //seconds
 };
 
 

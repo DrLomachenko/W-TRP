@@ -4,13 +4,12 @@
 #include <set>
 #include <stdexcept>
 #include <limits>
-#include <iostream>
 
 DAG LSGBuilder::build_from_instance(const TestInstance& inst, int K) const {
     const int N = inst.N;   // число работ
     const int M = inst.M;   // число инструментов
     const int C = inst.C;   // ёмкость магазина
-    //std::cout << "inter2";
+
     if (C <= 0) {
         throw std::runtime_error("BuilderCP: capacity C must be positive");
     }
@@ -92,8 +91,8 @@ DAG LSGBuilder::build_from_instance(const TestInstance& inst, int K) const {
 
             const int from = box[prevIdx + 1];
             const int to = box[curIdx];
-            //std::cout << from << " --> " << to << " : " << t << std::endl;
-            dag.add_edge(from, to, -cost[t - 1], 1, false, t);
+
+            dag.add_edge(from, to, -cost[t - 1], 1);
         }
     }
 

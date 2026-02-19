@@ -17,7 +17,7 @@ SRC_DIR = r"../raw_data_for_tests/TabelaAll"
 OUT_DIR = r"../tests_txt"
 SEED    = 12345
 CMIN    = 1
-CMAX    = 1
+CMAX    = 5
 
 def clean_output_directory(out_dir: Path):
     """Completely remove and recreate the output directory"""

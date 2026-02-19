@@ -198,17 +198,10 @@ CMakeFiles/WeightTRP.dir/src/Mecler/Genetic.cpp.o
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Parameters.h
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Population.h
 CMakeFiles/WeightTRP.dir/src/Mecler/Individual.cpp.o
- /Users/apple/Desktop/Tools/WeightTRP/src/BuilderLSG.h
- /Users/apple/Desktop/Tools/WeightTRP/src/DAG.h
- /Users/apple/Desktop/Tools/WeightTRP/src/DAG_Solver.h
- /Users/apple/Desktop/Tools/WeightTRP/src/IBuildGraph.h
- /Users/apple/Desktop/Tools/WeightTRP/src/ISolver.h
- /Users/apple/Desktop/Tools/WeightTRP/src/Instance.h
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Individual.cpp
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Individual.h
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/LocalSearch.h
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Parameters.h
- /Users/apple/Desktop/Tools/WeightTRP/src/instance.h
 CMakeFiles/WeightTRP.dir/src/Mecler/LocalSearch.cpp.o
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/Individual.h
  /Users/apple/Desktop/Tools/WeightTRP/src/Mecler/LocalSearch.cpp

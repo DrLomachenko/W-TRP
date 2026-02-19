@@ -1,0 +1,4 @@
+algorithm,test,N,M,C,total_cost,millis
+Mecler,from_1datA1_M10_N10_C5.txt,10,10,511,30.617
+Mecler,from_1datA2_M10_N10_C5.txt,10,10,510,29.123
+Mecler,from_1datA3_M10_N10_C5.txt,10,10,510,31.211

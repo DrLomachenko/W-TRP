@@ -7,8 +7,11 @@
 
 class HighsMCFSolver final : public ISolver {
 public:
-    HighsMCFSolver(double seconds){name = "MCF_ILP"; timeLimit = seconds;}
+    HighsMCFSolver(){name = "MCF_ILP";}
     long long ComputeSolution(const TestInstance& instance) override;
 
+    void setTimeLimit(double seconds) { time_limit_ = seconds; }
 
+private:
+    double time_limit_ = 600.0;  // секунды
 };

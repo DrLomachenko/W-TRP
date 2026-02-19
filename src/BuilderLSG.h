@@ -6,7 +6,8 @@
 // Реализует описанную тобой формулировку.
 class LSGBuilder final : public IBuildGraph {
 public:
-    LSGBuilder(){name ="LSG";}
+    // Имя билдера (для логов/CSV).
+    std::string name ="LSG";
 
     // K > 0 — штраф за обязательные рёбра требований.
     // Если K <= 0, он выбирается автоматически.
