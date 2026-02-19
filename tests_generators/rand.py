@@ -18,7 +18,7 @@ from pathlib import Path
 OUT_DIR = r"../tests_txt"
 SEED    = random.randint(1, 1000)
 CMIN    = 1
-CMAX    = 1
+CMAX    = 5
 
 # Список наборов инстансов:
 # для каждой строки (M, N, C, count) будет создано `count` случайных инстансов
@@ -28,11 +28,12 @@ INSTANCE_SPECS = [
     # добавляй сюда свои наборы
     # (M, N, C, count),
 ]
-for i in range(4, 9):
+for i in range(4, 12):
     k = 2
     adds = (int(i), int(k * i), int(i**0.5), 1)
     #adds = (2, 3, 2)
-    INSTANCE_SPECS.append(adds)
+    for i in range (1):
+        INSTANCE_SPECS.append(adds)
     
 
 def clean_output_directory(out_dir: Path):

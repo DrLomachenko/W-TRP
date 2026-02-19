@@ -15,7 +15,7 @@ from pathlib import Path
 
 SRC_DIR = r"../raw_data_for_tests/TabelaAll"
 OUT_DIR = r"../tests_txt"
-SEED    = 12345
+SEED    = 20
 CMIN    = 1
 CMAX    = 5
 
@@ -79,6 +79,7 @@ def main():
     for p in files:
         try:
             N, M, C, rows = read_tabela1(p)
+            if (N < 40 or random.randint(1, 100) > 30): continue
         except Exception as e:
             
             print("Skip", p.name, ":", e)

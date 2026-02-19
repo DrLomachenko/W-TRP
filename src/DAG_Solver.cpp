@@ -1,7 +1,25 @@
 #include "DAG_Solver.h"
 #include "DAG.h"
+#include <iostream>
 
 long long DAG_Solver::ComputeSolution(const TestInstance& instance) {
+    //std::cout << "inter";
     DAG dag = builder_.build_from_instance(instance, K_);
-    return static_cast<long long>(dag.compute_max_flow_min_cost());
+
+    auto result = dag.compute_max_flow_min_cost();
+
+    loadings = result.second;
+    for (int i = 0; i < instance.N; i++) {
+        for (auto j : instance.job_requirements[i]) {
+            loadings[i].push_back(j);
+
+        }
+    }
+    for (auto i : loadings) {
+        for (auto j : i) {
+            //std::cout << j << ", ";
+        }
+        //std::cout << std::endl;
+    }
+    return static_cast<long long>(result.first);
 }

@@ -1,20 +1,29 @@
 === Tool Switching Problem (PF vs LC) ===
-[Mecler] from_1datA1_M10_N10_C5.txt -> cost=11, avg time=30.617000 ms
-[Mecler] from_1datA2_M10_N10_C5.txt -> cost=10, avg time=29.123000 ms
-[Mecler] from_1datA3_M10_N10_C5.txt -> cost=10, avg time=31.211000 ms
+[FLOW_LSG] rand_M10_N20_C3_id000.txt -> cost=57, avg time=0.033000 ms
+[FLOW_LSG] rand_M11_N22_C3_id000.txt -> cost=89, avg time=0.029000 ms
+[FLOW_LSG] rand_M4_N8_C2_id000.txt -> cost=8, avg time=0.019000 ms
+[FLOW_LSG] rand_M5_N10_C2_id000.txt -> cost=33, avg time=0.010000 ms
+[FLOW_LSG] rand_M6_N12_C2_id000.txt -> cost=39, avg time=0.016000 ms
+[FLOW_LSG] rand_M7_N14_C2_id000.txt -> cost=35, avg time=0.014000 ms
+[FLOW_LSG] rand_M8_N16_C2_id000.txt -> cost=24, avg time=0.036000 ms
+[FLOW_LSG] rand_M9_N18_C3_id000.txt -> cost=101, avg time=0.023000 ms
+Saved: results/resultsLSG.csv
+[FLOW_] rand_M10_N20_C3_id000.txt -> cost=57, avg time=0.207000 ms
+[FLOW_] rand_M11_N22_C3_id000.txt -> cost=89, avg time=0.252000 ms
+[FLOW_] rand_M4_N8_C2_id000.txt -> cost=8, avg time=0.025000 ms
+[FLOW_] rand_M5_N10_C2_id000.txt -> cost=33, avg time=0.042000 ms
+[FLOW_] rand_M6_N12_C2_id000.txt -> cost=39, avg time=0.046000 ms
+[FLOW_] rand_M7_N14_C2_id000.txt -> cost=35, avg time=0.056000 ms
+[FLOW_] rand_M8_N16_C2_id000.txt -> cost=24, avg time=0.068000 ms
+[FLOW_] rand_M9_N18_C3_id000.txt -> cost=101, avg time=0.227000 ms
+Saved: results/resultsPF.csv
+[Mecler] rand_M10_N20_C3_id000.txt -> cost=60, avg time=6897.069000 ms
+[Mecler] rand_M11_N22_C3_id000.txt -> cost=85, avg time=20479.885000 ms
+[Mecler] rand_M4_N8_C2_id000.txt -> cost=12, avg time=120.294000 ms
+[Mecler] rand_M5_N10_C2_id000.txt -> cost=28, avg time=342.753000 ms
+[Mecler] rand_M6_N12_C2_id000.txt -> cost=45, avg time=725.001000 ms
+[Mecler] rand_M7_N14_C2_id000.txt -> cost=43, avg time=1340.338000 ms
+[Mecler] rand_M8_N16_C2_id000.txt -> cost=27, avg time=2414.470000 ms
+[Mecler] rand_M9_N18_C3_id000.txt -> cost=83, avg time=7012.379000 ms
 Saved: results/resultsMecler.csv
 
-[MCF_ILP] from_1datA1_M10_N10_C5.txt -> cost=27, avg time=27644.770000 ms
-[MCF_ILP] from_1datA2_M10_N10_C5.txt -> cost=32, avg time=2343.391000 ms
-[MCF_ILP] from_1datA3_M10_N10_C5.txt -> cost=21, avg time=1181.621000 ms
-Saved: results/resultsHiGHS_MCF.csv
-
-[] from_1datA1_M10_N10_C5.txt -> cost=36, avg time=0.016000 ms
-[] from_1datA2_M10_N10_C5.txt -> cost=37, avg time=0.012000 ms
-[] from_1datA3_M10_N10_C5.txt -> cost=29, avg time=0.013000 ms
-Saved: results/resultsLSG.csv
-
-[] from_1datA1_M10_N10_C5.txt -> cost=36, avg time=0.228000 ms
-[] from_1datA2_M10_N10_C5.txt -> cost=37, avg time=0.267000 ms
-[] from_1datA3_M10_N10_C5.txt -> cost=29, avg time=0.262000 ms
-Saved: results/resultLP_MCF.csv

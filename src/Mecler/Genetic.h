@@ -38,7 +38,7 @@ private:
 
 public:
 
-    clock_t ticks; ///< maximum time
+    double ticks; ///< maximum time
 
     bool traces; ///< if should print traces
 
@@ -77,7 +77,7 @@ public:
      * @param ticks clock info
      * @param traces if should print traces
      */
-    Genetic(Parameters *parameters, Population *population, clock_t ticks, bool traces);
+    Genetic(Parameters *parameters, Population *population, double ticks, bool traces);
 
     /// Destructor
     ~Genetic();

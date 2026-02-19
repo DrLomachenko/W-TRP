@@ -66,7 +66,7 @@ static void run_pipeline(const std::vector<std::string>& test_files,
             for (int i = 0; i < num_runs; ++i) {  // Многократные запуски
                 auto t0 = std::chrono::high_resolution_clock::now();
                 DAG dag = builder.build_from_instance(instance);
-                total_cost = dag.compute_max_flow_min_cost();
+                total_cost = dag.compute_max_flow_min_cost().first;
                 auto t1 = std::chrono::high_resolution_clock::now();
 
                 total_time += std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count() / 1000.0;
@@ -122,7 +122,7 @@ static void run_pipeline_solver(const std::vector<std::string>& test_files,
 
             // Запись результатов после каждого теста
             csv << solver.name << "," << fs::path(test_file).filename().string() << ","
-                << instance.N << "," << instance.M << "," << instance.C << total_cost << ","
+                << instance.N << "," << instance.M << "," << instance.C <<","<< total_cost << ","
                 << std::fixed << std::setprecision(3) << avg_time << "\n";
 
             // Логирование в реальном времени
@@ -140,6 +140,7 @@ static void run_pipeline_solver(const std::vector<std::string>& test_files,
 }
 
 int main() {
+    std::cout <<  std::filesystem::current_path() << " <- my dir" <<std::endl;
     std::ofstream log_file("log.txt", std::ios::trunc);
     log_file.close();
     log_message("=== Tool Switching Problem (PF vs LC) ===");
@@ -155,19 +156,21 @@ int main() {
     LCBuilder lc;
 
     int num_runs = 1;
+    double timeLimit = 600; // seconds
+    GeneticSolver Mecler(timeLimit * 0.8);
+    HighsMCFSolver MCF(timeLimit);
 
-    GeneticSolver Mecler;
-    HighsMCFSolver MCF;
-    HighsLPSolver LP;
-    DAG_Solver LSG(cp);
+    DAG_Solver LSG = DAG_Solver(cp);
+    DAG_Solver op = DAG_Solver(pf);
     // Запуск пайплайна
+    //run_pipeline_solver(tests, LSG, results_dir + "/resultsLSG.csv", num_runs);
+    //run_pipeline_solver(tests, op, results_dir + "/resultsPF.csv", num_runs);
+
+
+
     run_pipeline_solver(tests, Mecler, results_dir + "/resultsMecler.csv", num_runs);
     log_message(""); // Печатаем пустую строку для разделения
     run_pipeline_solver(tests, MCF, results_dir + "/resultsHiGHS_MCF.csv", num_runs);
-    log_message(""); // Печатаем пустую строку для разделения
-    run_pipeline_solver(tests, LSG, results_dir + "/resultsLSG.csv", num_runs);
-    log_message(""); // Печатаем пустую строку для разделения
-    run_pipeline_solver(tests, LP, results_dir + "/resultLP_MCF.csv", num_runs);
 
     return 0;
 }

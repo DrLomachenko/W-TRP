@@ -1,4 +1,9 @@
 algorithm,test,N,M,C,total_cost,millis
-,from_1datA1_M10_N10_C5.txt,10,10,536,0.016
-,from_1datA2_M10_N10_C5.txt,10,10,537,0.012
-,from_1datA3_M10_N10_C5.txt,10,10,529,0.013
+FLOW_LSG,rand_M10_N20_C3_id000.txt,20,10,3,57,0.033
+FLOW_LSG,rand_M11_N22_C3_id000.txt,22,11,3,89,0.029
+FLOW_LSG,rand_M4_N8_C2_id000.txt,8,4,2,8,0.019
+FLOW_LSG,rand_M5_N10_C2_id000.txt,10,5,2,33,0.010
+FLOW_LSG,rand_M6_N12_C2_id000.txt,12,6,2,39,0.016
+FLOW_LSG,rand_M7_N14_C2_id000.txt,14,7,2,35,0.014
+FLOW_LSG,rand_M8_N16_C2_id000.txt,16,8,2,24,0.036
+FLOW_LSG,rand_M9_N18_C3_id000.txt,18,9,3,101,0.023

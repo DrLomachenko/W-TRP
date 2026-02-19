@@ -28,15 +28,20 @@ class LocalSearch;
 struct SolutionCost {
 
     // Cost of the solution
-    unsigned int evaluation;
+    double evaluation;
+
+    long int costs;
 
     // Sum of square root of size of zero blocks
     double zeroBlocks;
+
+
 
     // Constructor
     SolutionCost() {
         evaluation = 0;
         zeroBlocks = 0;
+        costs = 0;
     }
 };
 

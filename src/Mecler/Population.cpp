@@ -41,7 +41,7 @@ Population::~Population() {
     delete trainer;
 }
 
-void Population::evalExtFit(SubPopulation *subPop) {
+void Population::evalExtFit(SubPopulation *subPop, bool flag = false) {
     int temp;
     vector<int> position;
     vector<double> distances;
@@ -86,7 +86,7 @@ void Population::evalExtFit(SubPopulation *subPop) {
 //    }
 //}
 
-int Population::addIndividual(Individual *indiv) {
+int Population::addIndividual(Individual *indiv, bool flag) {
     SubPopulation *subPop;
     int k, result;
     bool firstIt = true;
@@ -94,12 +94,23 @@ int Population::addIndividual(Individual *indiv) {
     subPop = subPopulation;
     result = placeIndividual(subPop, indiv);
 
+    if (flag) {
+        for (int i = 0; i < subPop->numberIndividuals; i++) {
+            for (int j = i; j < subPop->numberIndividuals; j++) {
+                if (subPop->individuals[j]->calcZeroBlocks() < subPop->individuals[i]->calcZeroBlocks()) {
+                    std::swap(subPop->individuals[i], subPop->individuals[i]);
+                }
+            }
+        }
+
+    }
+
 //    calcJobsDistance(subPop, parameters);
 
     // Keep only the survivors if the maximum size of the population has been reached
     if (result != -1 && subPop->numberIndividuals > parameters->populationSize + parameters->maxPopulationSize) {
         while (subPop->numberIndividuals > parameters->populationSize) {
-            k = selectToRemove(subPop);
+            k = selectToRemove(subPop, flag);
             removeIndividual(subPop, k);
             if (firstIt) {
                 firstIt = false;
@@ -226,7 +237,7 @@ Individual *Population::getBestIndividual() {
         return nullptr;
 }
 
-int Population::selectToRemove(SubPopulation *subPop) {
+int Population::selectToRemove(SubPopulation *subPop, bool flag) {
     // Select one individual to be eliminated from the population
     vector<int> position;
     int temp, toRemove;

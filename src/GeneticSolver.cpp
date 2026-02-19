@@ -33,10 +33,10 @@ long long GeneticSolver::ComputeSolution(const TestInstance& instance) {
     // Run genetic algorithm
     const clock_t startTime = clock();
 
-    Genetic solver(parameters, population, nb_ticks_allowed, false);
+    Genetic solver(parameters, population, timeLimit, false);
     solver.evolve(min2(parameters->numJobs * 20, 1000));
     //std::cout << parameters->numJobs << "," << parameters->numTools << "," << parameters->maxCapacity << "," << cost << ","  << totalTime << endl;
-    cost = population->getBestIndividual()->solutionCost.evaluation;
+    cost = population->getBestIndividual()->solutionCost.costs;
     totalTime = (float(clock() - startTime) / CLOCKS_PER_SEC);
 
 
@@ -72,6 +72,7 @@ Parameters* GeneticSolver::createParametersFromInstance(const TestInstance& inst
 
     // Преобразуем job_requirements в формат, подходящий для алгоритма
     parameters->jobsToolsMatrix.clear();
+    parameters->toolsCosts = instance.tool_costs;
     for (const auto& reqs : instance.job_requirements) {
 
         std::vector<unsigned int> job_tools(instance.M, 0);

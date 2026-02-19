@@ -5,7 +5,7 @@
 
 // ===== Реализации Arc'ов =====
 
-DAG::ForwardArc::ForwardArc(int u, int v, int cap, int w, bool in_obj) {
+DAG::ForwardArc::ForwardArc(int u, int v, int cap, int w, bool in_obj, int tool2) {
     from         = u;
     to           = v;
     capacity     = cap;
@@ -13,6 +13,10 @@ DAG::ForwardArc::ForwardArc(int u, int v, int cap, int w, bool in_obj) {
     in_objective = in_obj;
     flow         = 0;
     mate         = nullptr;
+
+    tool = tool2;
+    //std::cout<< tool << " uraaaa" << std::endl;
+
 }
 
 int DAG::ForwardArc::residual_cap() const {
@@ -64,8 +68,9 @@ void DAG::set_sink(int t) {
     sink_index = t;
 }
 
-void DAG::add_arc_pair_(int u, int v, int cap, int w, bool in_objective) {
-    auto fwd = std::make_unique<ForwardArc>(u, v, cap, w, in_objective);
+void DAG::add_arc_pair_(int u, int v, int cap, int w, bool in_objective, int tool) {
+    //std::cout << " toooloooo:" << tool << std::endl;
+    auto fwd = std::make_unique<ForwardArc>(u, v, cap, w, in_objective, tool);
     auto bwd = std::make_unique<BackwardArc>(v, u, fwd.get());
     fwd->mate = bwd.get();
 
@@ -76,13 +81,14 @@ void DAG::add_arc_pair_(int u, int v, int cap, int w, bool in_objective) {
     storage_.push_back(std::move(bwd));
 }
 
-void DAG::add_edge(int from, int to, int weight, int capacity, bool objective) {
+void DAG::add_edge(int from, int to, int weight, int capacity, bool objective, int tool) {
     if (from < 0 || from >= vertex_count) throw std::out_of_range("from");
     if (to   < 0 || to   >= vertex_count) throw std::out_of_range("to");
 
     // Старое поведение: ребро считается в цели, если weight >= 0
     bool in_objective = objective;
-    add_arc_pair_(from, to, capacity, weight, in_objective);
+    //std::cout << "toooolo:"<<tool<<std::endl;
+    add_arc_pair_(from, to, capacity, weight, in_objective, tool);
 }
 
 void DAG::add_edge_marked(int from, int to, int weight, int capacity, bool in_objective) {
@@ -187,7 +193,8 @@ void DAG::init_potentials_by_topo_(std::vector<long long>& pi) const {
 
 // ===== MCMF: SSAP + potentials =====
 
-int DAG::compute_max_flow_min_cost() {
+std::pair<int, std::vector<std::vector<int>>> DAG::compute_max_flow_min_cost() {
+
     if (source_index == -1 || sink_index == -1)
         throw std::logic_error("source/sink not set");
     if (!is_acyclic())
@@ -278,113 +285,36 @@ int DAG::compute_max_flow_min_cost() {
         || result_cost < (ll)std::numeric_limits<int>::min())
         throw std::overflow_error("result doesn't fit into int");
 
-    return static_cast<int>(result_cost);
-}
+    std::vector<std::vector<int>> loadings(N);
+    bool needToPrint = false;
+    bool needToFindLoadings = true;
 
-/*
-int DAG::compute_max_flow_min_cost() {
-    if (source_index == -1 || sink_index == -1)
-        throw std::logic_error("source/sink not set");
-    if (!is_acyclic())
-        throw std::logic_error("input graph must be a DAG (по прямым дугам)");
+    if (needToFindLoadings) {
 
-    using ll = long long;
-    const ll INF = (1LL << 60);
-    const int N  = vertex_count;
+        for (auto arcs : g_) {
+            for (auto arc : arcs) {
 
-    std::vector<ll>   dist(N);
-    std::vector<Arc*> parent(N);
-
-    // Беллман–Форд по прямым рёбрам с остаточной ёмкостью > 0
-    auto bellman_ford = [&]() -> bool {
-        std::fill(dist.begin(),   dist.end(),   INF);
-        std::fill(parent.begin(), parent.end(), nullptr);
-
-        dist[source_index] = 0;
-
-        bool changed = false;
-        for (int it = 0; it < N - 1; ++it) {
-            changed = false;
-            for (int u = 0; u < N; ++u) {
-                if (dist[u] == INF) continue;
-                for (Arc* a : g_[u]) {
-                    if (!a->is_forward()) continue;           // работаем только с прямыми
-                    if (a->residual_cap() <= 0) continue;     // ребро "полностью забито"
-                    int v  = a->head();
-                    ll nd  = dist[u] + a->cost();             // может быть отрицательной
-                    if (nd < dist[v]) {
-                        dist[v]   = nd;
-                        parent[v] = a;
-                        changed   = true;
+                if (arc->is_forward() && (arc->tool != -1) && ((arc->flow) > 0)) {
+                    //std::cout << arc->from << " -> " << arc->to << " tool: " << arc->tool << std::endl;
+                    for (int i = arc->from; i < arc->to; i++) {
+                        loadings[i].push_back(arc->tool);
                     }
                 }
             }
-            if (!changed) break;
         }
-
-        // если до стока не добрались — пути больше нет
-        if (false) {
+    }
 
 
-            for (int u = 0; u < N; ++u) {
-                for (Arc *a : g_[u]) {
-                    if (!a->is_forward()) continue;
-                    auto f = static_cast<ForwardArc *>(a);
-                    std::cerr
-                            << "edge " << f->from << " -> " << f->to
-                            << "  cost=" << f->weight
-                            << "  cap=" << f->capacity
-                            << "  flow=" << f->flow
-                            << "  resid_cap=" << f->residual_cap()
-                            << "\n";
-                }
+
+
+    if (needToPrint) {
+        for (auto i : loadings) {
+            for (auto j : i) {
+                std::cout << j << ", ";
             }
-        }
-        if (dist[sink_index] == INF) {
-
-
-            return false;
-        }
-
-        return true;
-    };
-
-    auto bottleneck = [&]() -> int {
-        int add = std::numeric_limits<int>::max();
-        for (Arc* a = parent[sink_index]; a; a = parent[a->tail()]) {
-            add = std::min(add, a->residual_cap());
-        }
-        return (add == std::numeric_limits<int>::max()) ? 0 : add;
-    };
-
-    // Основной цикл: пока есть путь — гоним минимальный поток по этому пути
-    int p = 0;
-    while (bellman_ford()) {
-        p++;
-        int add = 1;
-        if (add <= 0) break;
-
-        for (Arc* a = parent[sink_index]; a; a = parent[a->tail()]) {
-            a->augment(add);  // только увеличиваем поток по прямым рёбрам
+            std::cout << std::endl;
         }
     }
-    //if (p!=4){std::cout << p << " " << 5 << std::endl; while (true){}}
-    //std::cerr << "Done!"<<std::endl;
-    // Финальный подсчёт: суммируем поток по рёбрам, входящим в objective
-    long long result_flow = 0;
-    for (int u = 0; u < N; ++u) {
-        for (Arc* a : g_[u]) {
-            if (!a->is_forward()) continue;
-            auto f = static_cast<ForwardArc*>(a);
-            if (!f->in_objective) continue;
-
-            result_flow += static_cast<long long>(f->flow * f->cost());
-        }
-    }
-
-    if (result_flow > (long long)std::numeric_limits<int>::max())
-        throw std::overflow_error("result doesn't fit into int");
-
-    return static_cast<int>(result_flow);
+    return std::make_pair(static_cast<int>(result_cost), loadings);
 }
-*/
+

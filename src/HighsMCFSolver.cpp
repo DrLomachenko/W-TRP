@@ -53,7 +53,7 @@ namespace {
 
 long long HighsMCFSolver::ComputeSolution(const TestInstance& instance) {
     Highs highs;
-    highs.setOptionValue("time_limit", time_limit_);
+    highs.setOptionValue("time_limit", timeLimit);
     highs.setOptionValue("output_flag", false);
 
     const int N = instance.N; // jobs

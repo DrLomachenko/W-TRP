@@ -11,7 +11,9 @@
 
 #include "Individual.h"
 #include "random"
-
+#include "../instance.h"
+#include "../BuilderLSG.h"
+#include "../DAG_Solver.h"
 Individual::Individual(Parameters *parameters) : parameters(parameters) {
     //std::cout << "ok" << std::endl;
 
@@ -47,7 +49,43 @@ unsigned int Individual::calcCost(int jump) {
     // It is a dynamic programming approach to calculate
     // the number of tool switches given a fixed order of
     // jobs in polynomial time
+    int switches = 0;
+    TestInstance instance = TestInstance();
+    instance.tool_costs = parameters->toolsCosts;
+    instance.N = parameters->numJobs;
+    instance.M = parameters->numTools;
+    instance.C = parameters->maxCapacity;
+    std::vector<std::set<int>> toolsNeeds(instance.N);
+    for (int i = 0; i < parameters->numJobs; i++) {
 
+        for (unsigned int j = 0; j < parameters->numTools; j++) {
+
+            //std::cout << parameters->L.size() << ", "  << std::endl;
+            if (parameters->jobsToolsMatrix[chromosome[i]][j] == 1) {
+                toolsNeeds[i].insert(j+1);
+
+            }
+        }
+    }
+    instance.job_requirements = toolsNeeds;
+
+    LSGBuilder cp;
+    DAG_Solver LSG = DAG_Solver(cp);
+
+    switches = LSG.ComputeSolution(instance);
+    //switches = 0;
+    //std::vector<std::vector<unsigned int>> realLoadedMatrix = std::vector<std::vector<unsigned int>>(instance.N);
+    for (int i = 0; i < instance.N; i++){
+        parameters->loadedMatrix[i] = std::vector<unsigned int>(instance.M, 0);
+
+        for (auto j : LSG.loadings[i]) {
+            //parameters->W_n[j] = 1;
+            //parameters->used[j] = false;
+            parameters->loadedMatrix[i][j-1] = 1;
+        }
+        //parameters->loadedMatrix[i] = parameters->W_n;
+    }
+    /*
     // Fills L matrix (auxiliary structure used by KTNS)
     for (int i = (parameters->numJobs - 1); i >= 0; i--) {
 
@@ -72,7 +110,7 @@ unsigned int Individual::calcCost(int jump) {
         }
     }
 
-    unsigned int switches = 0;
+
     unsigned int capacity = 0;
     unsigned int tool = 0;
     double minVal;
@@ -129,13 +167,13 @@ unsigned int Individual::calcCost(int jump) {
             }
             parameters->W_n[tool] = 0;
             capacity--;
-            switches++;
+            //switches++;
         }
         parameters->loadedMatrix[n] = parameters->W_n;
     }
     if (jump != -1){
 
-        for (auto i : chromosome) 
+        for (auto i : chromosome)
         {
             std::cerr << i << " ";
         }
@@ -163,6 +201,9 @@ unsigned int Individual::calcCost(int jump) {
         }
         //std::cout << std::endl;
     }
+    */
+    solutionCost.costs = switches;
+    //double zeros = calcZeroBlocks();
     return switches;
 }
 
@@ -201,7 +242,7 @@ double Individual::calcZeroBlocks() {
                 sizeOfBlock = 0;
             }
         }
-        zeroBlocks += sqrt(sizeOfBlock);
+        zeroBlocks += sqrt(sizeOfBlock* parameters->toolsCosts[i]) ;
     }
 
     return zeroBlocks;

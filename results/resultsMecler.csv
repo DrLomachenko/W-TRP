@@ -1,4 +1,9 @@
 algorithm,test,N,M,C,total_cost,millis
-Mecler,from_1datA1_M10_N10_C5.txt,10,10,511,30.617
-Mecler,from_1datA2_M10_N10_C5.txt,10,10,510,29.123
-Mecler,from_1datA3_M10_N10_C5.txt,10,10,510,31.211
+Mecler,rand_M10_N20_C3_id000.txt,20,10,3,60,6897.069
+Mecler,rand_M11_N22_C3_id000.txt,22,11,3,85,20479.885
+Mecler,rand_M4_N8_C2_id000.txt,8,4,2,12,120.294
+Mecler,rand_M5_N10_C2_id000.txt,10,5,2,28,342.753
+Mecler,rand_M6_N12_C2_id000.txt,12,6,2,45,725.001
+Mecler,rand_M7_N14_C2_id000.txt,14,7,2,43,1340.338
+Mecler,rand_M8_N16_C2_id000.txt,16,8,2,27,2414.470
+Mecler,rand_M9_N18_C3_id000.txt,18,9,3,83,7012.379

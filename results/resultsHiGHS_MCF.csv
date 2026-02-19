@@ -1,4 +1,0 @@
-algorithm,test,N,M,C,total_cost,millis
-MCF_ILP,from_1datA1_M10_N10_C5.txt,10,10,527,27644.770
-MCF_ILP,from_1datA2_M10_N10_C5.txt,10,10,532,2343.391
-MCF_ILP,from_1datA3_M10_N10_C5.txt,10,10,521,1181.621

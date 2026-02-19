@@ -33,7 +33,7 @@ public:
     int seed;
 
     bool terminate;
-
+    std::vector<long long> toolsCosts;
     // Parameters to be displayed in solution file
     unsigned int nbIter;
     unsigned int improvesPrimary;

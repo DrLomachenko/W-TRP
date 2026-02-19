@@ -78,7 +78,7 @@ public:
      *
      * @param subPop structure of the population
      */
-    void evalExtFit(SubPopulation *subPop);
+    void evalExtFit(SubPopulation *subPop, bool flag);
 
     /**
      * Add individual in the population and keep survivors
@@ -88,7 +88,7 @@ public:
      *
      * @return position of individual
      */
-    int addIndividual(Individual *indiv);
+    int addIndividual(Individual *indiv, bool flag = false);
 
     /**
      * Remove individual from the population and from
@@ -106,7 +106,7 @@ public:
      *
      * @return position of individual
      */
-    int selectToRemove(SubPopulation *subPop);
+    int selectToRemove(SubPopulation *subPop, bool flag);
 
     /**
      * Update table of distance for the new individual
